@@ -1,6 +1,6 @@
 name: kiss_typography
 description: "A simple, clean Flutter typography package that provides semantic text widgets following the KISS (Keep It Simple, Stupid) principle."
-version: 0.6.0
+version: 0.7.0
 homepage: https://github.com/WAMF/kiss_typography
 
 environment:

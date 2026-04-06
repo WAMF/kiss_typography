@@ -63,9 +63,26 @@ class HeadlineLarge extends HeadlineText {
     super.key,
     super.color,
     super.textAlign,
+    this.responsive = true,
+    this.mobileBreakpoint = 600,
   });
 
+  /// When true, automatically uses headlineMedium on screens narrower
+  /// than [mobileBreakpoint] to prevent titles from breaking mid-word.
+  final bool responsive;
+
+  /// The width threshold below which headlineMedium is used.
+  /// Defaults to 600 (Material Design mobile breakpoint).
+  final double mobileBreakpoint;
+
   @override
-  TextStyle? getTextStyle(BuildContext context) =>
-      Theme.of(context).textTheme.headlineLarge;
+  TextStyle? getTextStyle(BuildContext context) {
+    if (responsive) {
+      final screenWidth = MediaQuery.of(context).size.width;
+      if (screenWidth < mobileBreakpoint) {
+        return Theme.of(context).textTheme.headlineMedium;
+      }
+    }
+    return Theme.of(context).textTheme.headlineLarge;
+  }
 }
