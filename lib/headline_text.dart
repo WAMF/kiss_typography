@@ -63,7 +63,7 @@ class HeadlineLarge extends HeadlineText {
     super.key,
     super.color,
     super.textAlign,
-    this.responsive = true,
+    this.responsive = false,
     this.mobileBreakpoint = 600,
   });
 
@@ -78,7 +78,7 @@ class HeadlineLarge extends HeadlineText {
   @override
   TextStyle? getTextStyle(BuildContext context) {
     if (responsive) {
-      final screenWidth = MediaQuery.of(context).size.width;
+      final screenWidth = MediaQuery.sizeOf(context).width;
       if (screenWidth < mobileBreakpoint) {
         return Theme.of(context).textTheme.headlineMedium;
       }
