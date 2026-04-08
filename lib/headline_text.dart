@@ -63,7 +63,7 @@ class HeadlineLarge extends HeadlineText {
     super.key,
     super.color,
     super.textAlign,
-    this.responsive = true,
+    this.responsive = false,
     this.mobileBreakpoint = 600,
   });
 
