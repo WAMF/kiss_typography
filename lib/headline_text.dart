@@ -78,7 +78,7 @@ class HeadlineLarge extends HeadlineText {
   @override
   TextStyle? getTextStyle(BuildContext context) {
     if (responsive) {
-      final screenWidth = MediaQuery.of(context).size.width;
+      final screenWidth = MediaQuery.sizeOf(context).width;
       if (screenWidth < mobileBreakpoint) {
         return Theme.of(context).textTheme.headlineMedium;
       }

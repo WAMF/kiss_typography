@@ -88,6 +88,10 @@ Theme(
 )
 ```
 
+### Responsive Headlines
+
+`HeadlineLarge` is responsive by default — on screens narrower than 600px, it automatically renders using the `headlineMedium` style to prevent titles from breaking mid-word on mobile devices. This behavior is automatic and requires no configuration at call sites.
+
 ## Class Reference
 
 ### Heading Classes
