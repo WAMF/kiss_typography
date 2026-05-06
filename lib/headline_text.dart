@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Typography;
+import 'package:kiss_typography/typography.dart';
 
 abstract class HeadlineText extends StatelessWidget {
   const HeadlineText(
@@ -40,8 +41,11 @@ class HeadlineSmall extends HeadlineText {
   });
 
   @override
-  TextStyle? getTextStyle(BuildContext context) =>
-      Theme.of(context).textTheme.headlineSmall;
+  TextStyle? getTextStyle(BuildContext context) {
+    final style = Theme.of(context).textTheme.headlineSmall;
+    final fontSize = Typography.maybeOf(context)?.headlineSmall;
+    return fontSize != null ? style?.copyWith(fontSize: fontSize) : style;
+  }
 }
 
 class HeadlineMedium extends HeadlineText {
@@ -53,8 +57,11 @@ class HeadlineMedium extends HeadlineText {
   });
 
   @override
-  TextStyle? getTextStyle(BuildContext context) =>
-      Theme.of(context).textTheme.headlineMedium;
+  TextStyle? getTextStyle(BuildContext context) {
+    final style = Theme.of(context).textTheme.headlineMedium;
+    final fontSize = Typography.maybeOf(context)?.headlineMedium;
+    return fontSize != null ? style?.copyWith(fontSize: fontSize) : style;
+  }
 }
 
 class HeadlineLarge extends HeadlineText {
@@ -66,6 +73,9 @@ class HeadlineLarge extends HeadlineText {
   });
 
   @override
-  TextStyle? getTextStyle(BuildContext context) =>
-      Theme.of(context).textTheme.headlineLarge;
+  TextStyle? getTextStyle(BuildContext context) {
+    final style = Theme.of(context).textTheme.headlineLarge;
+    final fontSize = Typography.maybeOf(context)?.headlineLarge;
+    return fontSize != null ? style?.copyWith(fontSize: fontSize) : style;
+  }
 }
